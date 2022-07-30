@@ -7,7 +7,7 @@
 
 // set the dimensions and margins of the graph
 const margin = { top: 20, right: 40, bottom: 30, left: 60 },
-    width = 1200 - margin.left - margin.right,
+    width = 1250 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
 // time parser for x-scale
@@ -32,7 +32,7 @@ const valueline = d3
 // append the svg object to the body of the page
 
 const svg = d3.select("#chart-area").append("svg")
-	.attr("width", 1200)
+	.attr("width", 1250)
 	.attr("height", 550)
 	;
 
