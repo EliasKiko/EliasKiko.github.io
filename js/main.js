@@ -6,9 +6,9 @@
 
 
 // set the dimensions and margins of the graph
-const margin = { top: 40, right: 40, bottom: 60, left: 60 },
-    width = 1000 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom;
+const margin = { top: 20, right: 40, bottom: 30, left: 60 },
+    width = 1200 - margin.left - margin.right,
+    height = 550 - margin.top - margin.bottom;
 
 // time parser for x-scale
 const parseDate = d3.timeParse("%m/%d/%Y"),
@@ -33,7 +33,7 @@ const valueline = d3
 
 const svg = d3.select("#chart-area").append("svg")
 	.attr("width", 1200)
-	.attr("height", 800)
+	.attr("height", 550)
 	;
 
 const g = d3
@@ -167,7 +167,7 @@ function appendData(year) {
             .append("text")
             .attr("class", "title")
             .attr("x", width / 2)
-            .attr("y", 0 - margin.top / 2)
+            .attr("y", margin.top / 2)
             .attr("text-anchor", "middle")
 			//.style("font", "24px times")
 			//.style("font-weight","bold")
@@ -477,7 +477,7 @@ function appendData(year) {
 		const mesurementColor = ["#607D8B","#b3cde3"];
 		const legend = g.append("g")
 			.attr("class","legend")
-			.attr("transform", `translate(${width }, ${height - 365})`)
+			.attr("transform", `translate(${width }, ${-height * 0.02})`)
 
 		mesurements.forEach((mesurement, i) => {
 			const legendRow = legend.append("g")
