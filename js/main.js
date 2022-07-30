@@ -82,10 +82,10 @@ function appendData(year) {
 
     //filename = "data/Covid" + year + ".csv";
 	//one data file
-	filename = "data/Covid_Data.csv";
+	//filename = "data/Covid_Data.csv";
 	
 
-    d3.csv(filename).then((data) => {
+    d3.csv('https://raw.githubusercontent.com/EliasKiko/EliasKiko.github.io/main/Data/Covid_Data.csv').then((data) => {
 		//filter data by selected year
 		data = data.filter(function(d) {return formatYear(parseDate(d.date)) == year});
         //data = data.sort(function(a, b){ return d3.ascending(a.date, b.date); });
