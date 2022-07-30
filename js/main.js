@@ -30,31 +30,36 @@ const valueline = d3
     .curve(d3.curveCardinal);
 
 // append the svg object to the body of the page
-const svg = d3
+
+const svg = d3.select("#chart-area").append("svg")
+	.attr("width", 1000)
+	.attr("height", 800)
+	;
+
+const g = d3
     .select("svg")
-    .append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-svg
+g
     .append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).tickFormat(formatMonth)); 
 	
-svg.append("g").
+g.append("g").
 	attr("class", "y axis")
 	//.call(d3.axisLeft(y));
 
 // axis labels
-const xLabel = svg.append("text")
+const xLabel = g.append("text")
 				.attr("class", "x axisLabel")
 				.attr("y", height + 50)
 				.attr("x", width / 2)
 				.attr("font-size", "20px")
 				.attr("text-anchor", "middle")
 				//.text("Time")
-const yLabel = svg.append("text")
+const yLabel = g.append("text")
 				.attr("class", "y axisLabel")
 				.attr("transform", "rotate(-90)")
 				.attr("y", 6)
@@ -124,7 +129,7 @@ function appendData(year) {
 				.attr("x", "50")
 				.attr("text-anchor", "end")
 				;
-        svg
+        g
             .select(".y.axis") 
             .transition()
             .duration(500)
@@ -135,7 +140,7 @@ function appendData(year) {
 		xLabel.text("Year " + year);
 
 		// add bar to chart
-		svg.selectAll("rect")
+		g.selectAll("rect")
 			.data(data)
 			.enter()
 			.append("rect")
@@ -148,7 +153,7 @@ function appendData(year) {
 			.attr("opacity", 0.7);
 		
 		// add line to chart
-		svg.append("path")
+		g.append("path")
 			.attr("class", "line")
 			.attr("fill", "none")
 			.attr("stroke", "#607D8B")
@@ -158,7 +163,7 @@ function appendData(year) {
             .duration(1000);
 
 		//Add a title
-        svg
+        g
             .append("text")
             .attr("class", "title")
             .attr("x", width / 2)
@@ -337,7 +342,7 @@ function appendData(year) {
 		window.makeAnnotations = d3.annotation()
 			.annotations(filteredAnnotations);
 		  
-		svg.append("g")
+		g.append("g")
 			.attr("class", "annotation")
 		 	.call(makeAnnotations);
 		/******************************** End of Annonation ********************************/
@@ -347,7 +352,7 @@ function appendData(year) {
 		var bisect = d3.bisector(function(d) { return d.date; }).left;
 
 		// Create the tooltip that travels along the curve of chart
-		var focus = svg
+		var focus = g
 			.append('g')
 			.attr("class","focus")
 			.style("display", "none");
@@ -403,7 +408,7 @@ function appendData(year) {
             .style("fill", "grey");
 
 		 // Create a rect on top of the svg area: this rectangle recovers mouse position
-		 svg
+		 g
 			.append('rect')
 			.style("fill", "none")
 			.style("pointer-events", "all")
@@ -470,7 +475,7 @@ function appendData(year) {
 		//** Legend */
 		const mesurements = ["7-day Average", "Daily New Cases"];
 		const mesurementColor = ["#607D8B","#b3cde3"];
-		const legend = svg.append("g")
+		const legend = g.append("g")
 			.attr("class","legend")
 			.attr("transform", `translate(${width }, ${height - 365})`)
 
