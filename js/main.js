@@ -182,7 +182,7 @@ function appendData(year) {
 			{
 				note: {
 				  label: "First case reported",
-				  title: "January 20, 2020",
+				  title: "January 24, 2020",
 				  wrap: 150,  // try something smaller to see text split in several lines
 				  padding: 10   // More = text lower
 				
@@ -212,7 +212,46 @@ function appendData(year) {
 				type: d3.annotationCalloutElbow,
 				year: 2020,
 			},
+			
 			// Third annotation
+			{
+				note: {
+				  label: "First wave",
+				  title: "April, 2020",
+				  wrap: 130,  
+				  padding: 10   // More = text lower
+				
+			   	},
+				color: ["#cc0000"],
+				x: x(parseDate('04/07/2020')),
+				y: y(30036),
+				dy: -110,
+				dx: 90,
+				type: d3.annotationCalloutElbow,
+				year: 2020,
+			},
+			// Fourth annotation
+			{
+				note: {
+					label: "Second wave",
+					title: "Summer 2020",
+					wrap: 150,  // try something smaller to see text split in several lines
+					padding: 10   // More = text lower
+					
+				},
+		   		color: ["#cc0000"],
+				x: x(parseDate('07/23/2020')),
+				y: y(67886),
+				dy: -110,
+				dx: 0,
+				subject: {
+					radius: 40,
+					radiusPadding: 5
+		  		},
+				type: d3.annotationCalloutCircle,
+				year: 2020,
+		  	},
+			// annotation
 			{
 				note: {
 					label: "Surge of infection heading winter",
