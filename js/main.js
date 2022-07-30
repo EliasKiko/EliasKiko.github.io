@@ -32,7 +32,7 @@ const valueline = d3
 // append the svg object to the body of the page
 
 const svg = d3.select("#chart-area").append("svg")
-	.attr("width", 1000)
+	.attr("width", 1200)
 	.attr("height", 800)
 	;
 
