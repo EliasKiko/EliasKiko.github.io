@@ -222,13 +222,17 @@ function appendData(year) {
 				  padding: 10   // More = text lower
 				
 			   	},
-				color: ["#cc0000"],
-				x: x(parseDate('04/07/2020')),
-				y: y(30036),
-				dy: -110,
-				dx: 90,
-				type: d3.annotationCalloutElbow,
-				year: 2020,
+				   color: ["#cc0000"],
+				   x: x(parseDate('04/8/2020')),
+				   y: y(29100),
+				   dy: -120,
+				   dx: 60,
+				   subject: {
+					   radius: 35,
+					   radiusPadding: 5
+					 },
+				   type: d3.annotationCalloutCircle,
+				   year: 2020,
 			},
 			// Fourth annotation
 			{
@@ -297,7 +301,7 @@ function appendData(year) {
 			{
 				note: {
 					label: "Vaccine roll out to general public",
-					title: "March 2021",
+					title: "March 15 2021",
 					wrap: 140,  // try something smaller to see text split in several lines
 					padding: 10   // More = text lower
 					
